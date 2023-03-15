@@ -23,7 +23,11 @@ This app stores data about K-PACs and K-PAC Sets in a relational database manage
 # To launch the application, you will need:
 1. Install Docker
 2. Clone this project to your local machine;
-3. Go to project folder in terminal and enter
+3. run 
+```maven
+mvn clean install -DSkipTests
+```
+4. Go to project folder in terminal and run
 ``` docker
 docker-compose up
 ```
