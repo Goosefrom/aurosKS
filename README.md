@@ -4,6 +4,7 @@
 This is a Spring-based web application. It allows you to create, read, and delete data relating to K-PACs (knowledge packages) and K-PAC Sets.
 
 This app stores data about K-PACs and K-PAC Sets in a relational database managed by MySQL.
+Url to Disk with App files https://drive.google.com/drive/folders/1S3wc7eOODHI-ZPynwUEsvGIZAmzKNTpu?usp=sharing
 
 ## Functional requirements(endpoints):
 - /kpacs - page where list of all K-PACs is displayed;
