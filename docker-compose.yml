@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ['catalina.sh', 'run']
+    ports:
+      - 8081:8080
+    depends_on:
+      - mySql
+    environment:
+      - DATABASE_HOST=mySql
+      - DATABASE_NAME=auros
+      - DATABASE_USER=user
+      - DATABASE_PASSWORD=password
+      - DATABASE_PORT=3306
+
+
+  mySql:
+    image: mysql:8.0.25
+    ports:
+      - 3306:3306
+    restart: on-failure
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: auros
+    volumes:
+      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - ./src/main/resources/data.sql:/docker-entrypoint-initdb.d/insert_data.sql
